@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admission Form</title>
+
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      background:#f4f4f4;
+      padding:20px;
+    }
+
+    .container{
+      max-width:600px;
+      background:white;
+      margin:auto;
+      padding:25px;
+      border-radius:10px;
+      box-shadow:0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2{
+      text-align:center;
+      color:#333;
+    }
+
+    label{
+      display:block;
+      margin-top:15px;
+      font-weight:bold;
+    }
+
+    input,
+    textarea,
+    select{
+      width:100%;
+      padding:10px;
+      margin-top:5px;
+      border:1px solid #ccc;
+      border-radius:5px;
+    }
+
+    .gender{
+      margin-top:10px;
+    }
+
+    .gender input{
+      width:auto;
+      margin-right:5px;
+    }
+
+    button{
+      width:100%;
+      padding:12px;
+      margin-top:20px;
+      background:#2196f3;
+      color:white;
+      border:none;
+      border-radius:5px;
+      font-size:16px;
+      cursor:pointer;
+    }
+
+    button:hover{
+      background:#1976d2;
+    }
+
+    .result{
+      display:none;
+      margin-top:30px;
+      padding:20px;
+      background:#fafafa;
+      border-radius:10px;
+      border:1px solid #ddd;
+    }
+
+    .result p{
+      margin:10px 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <h2>Student Admission Form</h2>
+
+  <form id="admissionForm">
+
+    <label>Student Name</label>
+    <input 
+      type="text"
+      id="studentName"
+      placeholder="Enter student name"
+      required
+    >
+
+    <label>Father Name</label>
+    <input 
+      type="text"
+      id="fatherName"
+      placeholder="Enter father name"
+      required
+    >
+
+    <label>Email</label>
+    <input 
+      type="email"
+      id="email"
+      placeholder="Enter email"
+      required
+    >
+
+    <label>Phone Number</label>
+    <input 
+      type="tel"
+      id="phone"
+      placeholder="Enter phone number"
+      required
+    >
+
+    <label>Date of Birth</label>
+    <input 
+      type="date"
+      id="dob"
+      required
+    >
+
+    <label>Gender</label>
+
+    <div class="gender">
+
+      <input 
+        type="radio"
+        name="gender"
+        value="Male"
+        required
+      > Male
+
+      <input 
+        type="radio"
+        name="gender"
+        value="Female"
+        required
+      > Female
+
+      <input 
+        type="radio"
+        name="gender"
+        value="Other"
+        required
+      > Other
+
+    </div>
+
+    <label>Course</label>
+
+    <select id="course" required>
+      <option value="">Select Course</option>
+      <option>BCA</option>
+      <option>B.Sc</option>
+      <option>B.Com</option>
+      <option>BBA</option>
+      <option>MCA</option>
+    </select>
+
+    <label>Address</label>
+
+    <textarea
+      id="address"
+      rows="4"
+      placeholder="Enter address"
+      required
+    ></textarea>
+
+    <button type="submit">Submit Admission</button>
+
+  </form>
+
+  <!-- Result Section -->
+
+  <div class="result" id="resultBox">
+
+    <h2>Admission Details</h2>
+
+    <p>
+      <strong>Student Name:</strong>
+      <span id="showStudent"></span>
+    </p>
+
+    <p>
+      <strong>Father Name:</strong>
+      <span id="showFather"></span>
+    </p>
+
+    <p>
+      <strong>Email:</strong>
+      <span id="showEmail"></span>
+    </p>
+
+    <p>
+      <strong>Phone:</strong>
+      <span id="showPhone"></span>
+    </p>
+
+    <p>
+      <strong>Date of Birth:</strong>
+      <span id="showDob"></span>
+    </p>
+
+    <p>
+      <strong>Gender:</strong>
+      <span id="showGender"></span>
+    </p>
+
+    <p>
+      <strong>Course:</strong>
+      <span id="showCourse"></span>
+    </p>
+
+    <p>
+      <strong>Address:</strong>
+      <span id="showAddress"></span>
+    </p>
+
+  </div>
+
+</div>
+
+<script>
+
+  const form = document.getElementById("admissionForm");
+
+  form.addEventListener("submit", function(event){
+
+    event.preventDefault();
+
+    // Get Values
+    const studentName = document.getElementById("studentName").value;
+    const fatherName = document.getElementById("fatherName").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+    const dob = document.getElementById("dob").value;
+    const course = document.getElementById("course").value;
+    const address = document.getElementById("address").value;
+
+    // Get Gender
+    const gender = document.querySelector('input[name="gender"]:checked');
+
+    // Display Values
+    document.getElementById("showStudent").innerText = studentName;
+    document.getElementById("showFather").innerText = fatherName;
+    document.getElementById("showEmail").innerText = email;
+    document.getElementById("showPhone").innerText = phone;
+    document.getElementById("showDob").innerText = dob;
+    document.getElementById("showGender").innerText = gender.value;
+    document.getElementById("showCourse").innerText = course;
+    document.getElementById("showAddress").innerText = address;
+
+    // Show Result Box
+    document.getElementById("resultBox").style.display = "block";
+
+  });
+
+</script>
+
+</body>
+</html>

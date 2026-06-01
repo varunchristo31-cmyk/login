@@ -1,270 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admission Form</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Page</title>
 
-  <style>
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family: Arial, sans-serif;
+    }
+
     body{
-      font-family: Arial, sans-serif;
-      background:#f4f4f4;
-      padding:20px;
+        height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+
+        /* Background Image */
+        background:
+            linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+            url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1600');
+
+        background-size:cover;
+        background-position:center;
+        background-repeat:no-repeat;
     }
 
     .container{
-      max-width:600px;
-      background:white;
-      margin:auto;
-      padding:25px;
-      border-radius:10px;
-      box-shadow:0 0 10px rgba(0,0,0,0.1);
+        width:900px;
+        height:500px;
+        display:flex;
+        border-radius:12px;
+        overflow:hidden;
+        box-shadow:0 10px 25px rgba(0,0,0,0.3);
+        background:#fff;
     }
 
-    h2{
-      text-align:center;
-      color:#333;
+    /* Left Side Image */
+    .left{
+        flex:1;
     }
 
-    label{
-      display:block;
-      margin-top:15px;
-      font-weight:bold;
+    .left img{
+        width:100%;
+        height:100%;
+        object-fit:cover;
     }
 
-    input,
-    textarea,
-    select{
-      width:100%;
-      padding:10px;
-      margin-top:5px;
-      border:1px solid #ccc;
-      border-radius:5px;
+    /* Right Side Form */
+    .right{
+        flex:1;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        padding:40px;
+        background:#fff;
     }
 
-    .gender{
-      margin-top:10px;
+    .login-form{
+        width:100%;
+        max-width:320px;
     }
 
-    .gender input{
-      width:auto;
-      margin-right:5px;
+    .login-form h2{
+        text-align:center;
+        margin-bottom:25px;
+        letter-spacing:2px;
     }
 
-    button{
-      width:100%;
-      padding:12px;
-      margin-top:20px;
-      background:#2196f3;
-      color:white;
-      border:none;
-      border-radius:5px;
-      font-size:16px;
-      cursor:pointer;
+    .input-group{
+        margin-bottom:15px;
     }
 
-    button:hover{
-      background:#1976d2;
+    .input-group input{
+        width:100%;
+        padding:12px;
+        border:1px solid #ccc;
+        border-radius:5px;
+        outline:none;
     }
 
-    .result{
-      display:none;
-      margin-top:30px;
-      padding:20px;
-      background:#fafafa;
-      border-radius:10px;
-      border:1px solid #ddd;
+    .remember{
+        display:flex;
+        align-items:center;
+        gap:8px;
+        margin-bottom:20px;
+        font-size:14px;
     }
 
-    .result p{
-      margin:10px 0;
+    .login-btn{
+        width:100%;
+        padding:12px;
+        border:none;
+        background:#007bff;
+        color:#fff;
+        font-size:16px;
+        border-radius:5px;
+        cursor:pointer;
     }
-  </style>
+
+    .login-btn:hover{
+        background:#0056b3;
+    }
+
+    /* Responsive */
+    @media(max-width:768px){
+        .container{
+            flex-direction:column;
+            width:90%;
+            height:auto;
+        }
+
+        .left{
+            height:200px;
+        }
+    }
+</style>
 </head>
+
 <body>
 
 <div class="container">
 
-  <h2>Student Admission Form</h2>
-
-  <form id="admissionForm">
-
-    <label>Student Name</label>
-    <input 
-      type="text"
-      id="studentName"
-      placeholder="Enter student name"
-      required
-    >
-
-    <label>Father Name</label>
-    <input 
-      type="text"
-      id="fatherName"
-      placeholder="Enter father name"
-      required
-    >
-
-    <label>Email</label>
-    <input 
-      type="email"
-      id="email"
-      placeholder="Enter email"
-      required
-    >
-
-    <label>Phone Number</label>
-    <input 
-      type="tel"
-      id="phone"
-      placeholder="Enter phone number"
-      required
-    >
-
-    <label>Date of Birth</label>
-    <input 
-      type="date"
-      id="dob"
-      required
-    >
-
-    <label>Gender</label>
-
-    <div class="gender">
-
-      <input 
-        type="radio"
-        name="gender"
-        value="Male"
-        required
-      > Male
-
-      <input 
-        type="radio"
-        name="gender"
-        value="Female"
-        required
-      > Female
-
-      <input 
-        type="radio"
-        name="gender"
-        value="Other"
-        required
-      > Other
-
+    <!-- Left Image -->
+    <div class="left">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=900" alt="Login Image">
     </div>
 
-    <label>Course</label>
+    <!-- Right Form -->
+    <div class="right">
+        <form class="login-form">
+            <h2>LOGIN</h2>
 
-    <select id="course" required>
-      <option value="">Select Course</option>
-      <option>BCA</option>
-      <option>B.Sc</option>
-      <option>B.Com</option>
-      <option>BBA</option>
-      <option>MCA</option>
-    </select>
+            <div class="input-group">
+                <input type="email" placeholder="Enter your email" required>
+            </div>
 
-    <label>Address</label>
+            <div class="input-group">
+                <input type="password" placeholder="Enter your password" required>
+            </div>
 
-    <textarea
-      id="address"
-      rows="4"
-      placeholder="Enter address"
-      required
-    ></textarea>
+            <div class="remember">
+                <input type="checkbox" id="remember">
+                <label for="remember">Remember Me</label>
+            </div>
 
-    <button type="submit">Submit Admission</button>
-
-  </form>
-
-  <!-- Result Section -->
-
-  <div class="result" id="resultBox">
-
-    <h2>Admission Details</h2>
-
-    <p>
-      <strong>Student Name:</strong>
-      <span id="showStudent"></span>
-    </p>
-
-    <p>
-      <strong>Father Name:</strong>
-      <span id="showFather"></span>
-    </p>
-
-    <p>
-      <strong>Email:</strong>
-      <span id="showEmail"></span>
-    </p>
-
-    <p>
-      <strong>Phone:</strong>
-      <span id="showPhone"></span>
-    </p>
-
-    <p>
-      <strong>Date of Birth:</strong>
-      <span id="showDob"></span>
-    </p>
-
-    <p>
-      <strong>Gender:</strong>
-      <span id="showGender"></span>
-    </p>
-
-    <p>
-      <strong>Course:</strong>
-      <span id="showCourse"></span>
-    </p>
-
-    <p>
-      <strong>Address:</strong>
-      <span id="showAddress"></span>
-    </p>
-
-  </div>
+            <button type="submit" class="login-btn">Login</button>
+        </form>
+    </div>
 
 </div>
-
-<script>
-
-  const form = document.getElementById("admissionForm");
-
-  form.addEventListener("submit", function(event){
-
-    event.preventDefault();
-
-    // Get Values
-    const studentName = document.getElementById("studentName").value;
-    const fatherName = document.getElementById("fatherName").value;
-    const email = document.getElementById("email").value;
-    const phone = document.getElementById("phone").value;
-    const dob = document.getElementById("dob").value;
-    const course = document.getElementById("course").value;
-    const address = document.getElementById("address").value;
-
-    // Get Gender
-    const gender = document.querySelector('input[name="gender"]:checked');
-
-    // Display Values
-    document.getElementById("showStudent").innerText = studentName;
-    document.getElementById("showFather").innerText = fatherName;
-    document.getElementById("showEmail").innerText = email;
-    document.getElementById("showPhone").innerText = phone;
-    document.getElementById("showDob").innerText = dob;
-    document.getElementById("showGender").innerText = gender.value;
-    document.getElementById("showCourse").innerText = course;
-    document.getElementById("showAddress").innerText = address;
-
-    // Show Result Box
-    document.getElementById("resultBox").style.display = "block";
-
-  });
-
-</script>
 
 </body>
 </html>
